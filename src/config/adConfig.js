@@ -4,36 +4,43 @@ export const AD_CONFIG = {
   
   // Slots de anuncios (debes crear estos en tu cuenta de AdSense)
   slots: {
-    topBanner: '1234567890',      // Banner superior - 728x90
-    middleSquare: '1234567891',   // Cuadrado medio - 336x280
+    leftSidebar: '1234567890',    // Sidebar izquierdo - 160x600
+    rightSidebar: '1234567891',   // Sidebar derecho - 160x600
     bottomBanner: '1234567892',   // Banner inferior - 728x90
-    mobileBanner: '1234567893',   // Banner para móviles - 320x50
+    mobileInline: '1234567893',   // Anuncio inline móvil - 320x50
+    mobileBottom: '1234567894',   // Banner móvil inferior - 320x50
   },
   
   // Configuraciones de anuncios por posición
   positions: {
-    top: {
-      desktop: { width: 728, height: 90 },
-      mobile: { width: 320, height: 50 }
-    },
-    middle: {
-      desktop: { width: 336, height: 280 },
-      mobile: { width: 300, height: 250 }
+    sidebar: {
+      desktop: { width: 160, height: 600 },
+      tablet: { width: 120, height: 500 },
+      mobile: null // No se muestran en móvil
     },
     bottom: {
       desktop: { width: 728, height: 90 },
+      tablet: { width: 468, height: 60 },
+      mobile: { width: 320, height: 50 }
+    },
+    inline: {
       mobile: { width: 320, height: 50 }
     }
   }
 };
 
-// Detectar si es móvil
-export const isMobile = () => {
-  return window.innerWidth <= 768;
+// Detectar tipo de dispositivo
+export const getDeviceType = () => {
+  const width = window.innerWidth;
+  if (width <= 575) return 'mobile';
+  if (width <= 991) return 'tablet';
+  return 'desktop';
 };
 
 // Obtener configuración de anuncio según la posición
 export const getAdConfig = (position) => {
   const config = AD_CONFIG.positions[position];
-  return isMobile() ? config.mobile : config.desktop;
+  const deviceType = getDeviceType();
+  
+  return config[deviceType] || null;
 };

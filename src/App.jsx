@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import Layout from './components/Layout'
 import AdBanner from './components/AdBanner'
+import MobileAdBanner from './components/MobileAdBanner'
 
 function App(){
   const [theme, setTheme] = useState("light");
@@ -70,23 +72,21 @@ function App(){
   };
 
   return (
-    <div className="App">
-      <button onClick={toggleTheme} className="theme-toggle">
-        Cambiar a {theme === "light" ? "dark" : "light"} mode
-      </button>
-      
-      <h1>Calculadora de Resistencias</h1>
-      <p>Selecciona los colores de las bandas para calcular el valor</p>
-      
-      {/* Anuncio superior - Banner horizontal */}
-      <AdBanner 
-        position="top"
-        adSlot="1234567890" 
-        adFormat="rectangle"
-        className="ad-top"
-      />
-      
-      <div className="resistor-container">
+    <Layout>
+      <div className="App">
+        <button onClick={toggleTheme} className="theme-toggle">
+          Cambiar a {theme === "light" ? "dark" : "light"} mode
+        </button>
+        
+        <h1>Calculadora de Resistencias</h1>
+        <p>Selecciona los colores de las bandas para calcular el valor</p>
+        
+        {/* Anuncio inline para móvil después del título */}
+        <MobileAdBanner 
+          adSlot="1234567893"
+        />
+        
+        <div className="resistor-container">
         <div className="resistor">
           <div 
             className="band band1" 
@@ -145,27 +145,27 @@ function App(){
         </div>
       </div>
 
-      {/* Anuncio medio - Entre controles y resultado */}
-      <AdBanner 
-        position="middle"
-        adSlot="1234567891" 
-        adFormat="rectangle"
-        className="ad-middle"
-      />
+              {/* Anuncio inline para móvil entre controles y resultado */}
+        <MobileAdBanner 
+          adSlot="1234567894"
+        />
 
-      <div className="result">
-        <h2>Valor: {calculateResistance()}</h2>
-        <p>Tolerancia: {toleranceValues[tolerance].tolerance}</p>
+        <div className="result">
+          <h2>Valor: {calculateResistance()}</h2>
+          <p>Tolerancia: {toleranceValues[tolerance].tolerance}</p>
+        </div>
       </div>
 
-      {/* Anuncio inferior - Banner horizontal */}
-      <AdBanner 
-        position="bottom"
-        adSlot="1234567892" 
-        adFormat="rectangle"
-        className="ad-bottom"
-      />
-    </div>
+      {/* Anuncio inferior - Banner horizontal debajo del contenido principal */}
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
+        <AdBanner 
+          position="bottom"
+          adSlot="1234567892" 
+          adFormat="rectangle"
+          className="ad-bottom"
+        />
+      </div>
+    </Layout>
   );
 }
 

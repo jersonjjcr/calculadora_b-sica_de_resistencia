@@ -11,9 +11,10 @@
 2. **Crear unidades de anuncios:**
    Una vez aprobado, crea estas unidades en tu panel de AdSense:
    
-   - **Banner Superior**: 728x90 (Desktop) / 320x50 (Mobile)
-   - **Cuadrado Medio**: 336x280 (Desktop) / 300x250 (Mobile)  
-   - **Banner Inferior**: 728x90 (Desktop) / 320x50 (Mobile)
+   - **Sidebar Izquierdo**: 160x600 (Desktop) / 120x500 (Tablet)
+   - **Sidebar Derecho**: 160x600 (Desktop) / 120x500 (Tablet)
+   - **Banner Inferior**: 728x90 (Desktop) / 468x60 (Tablet) / 320x50 (Mobile)
+   - **Anuncios Inline**: 320x50 (Solo móvil)
 
 3. **Actualizar configuración:**
    Edita `src/config/adConfig.js` con tus IDs reales:
@@ -23,25 +24,27 @@ export const AD_CONFIG = {
   publisherId: 'ca-pub-TU-PUBLISHER-ID',
   
   slots: {
-    topBanner: 'TU-SLOT-ID-1',      
-    middleSquare: 'TU-SLOT-ID-2',   
-    bottomBanner: 'TU-SLOT-ID-3',   
-    mobileBanner: 'TU-SLOT-ID-4',   
+    leftSidebar: 'TU-SLOT-ID-1',      // Sidebar izquierdo
+    rightSidebar: 'TU-SLOT-ID-2',     // Sidebar derecho   
+    bottomBanner: 'TU-SLOT-ID-3',     // Banner inferior   
+    mobileInline: 'TU-SLOT-ID-4',     // Inline móvil superior
+    mobileBottom: 'TU-SLOT-ID-5',     // Inline móvil inferior   
   }
 };
 ```
 
 ### 🎯 Posicionamiento Estratégico:
 
-- **Superior**: Después del título, antes del resistor
-- **Medio**: Entre los controles y el resultado
-- **Inferior**: Después del resultado final
+- **Sidebars Laterales**: Anuncios verticales en desktop (160x600)
+- **Anuncios Inline**: Solo en móvil, intercalados en el contenido
+- **Banner Inferior**: Anuncio horizontal debajo de todo el contenido
 
 ### 📱 Responsive Design:
 
-Los anuncios se adaptan automáticamente:
-- **Desktop**: Banners 728x90, Cuadrado 336x280
-- **Mobile**: Banners 320x50, Cuadrado 300x250
+Los anuncios se adaptan automáticamente según dispositivo:
+- **Desktop (992px+)**: Sidebars 160x600 + Banner inferior 728x90
+- **Tablet (768-991px)**: Sidebars 120x500 + Banner inferior 468x60
+- **Mobile (≤767px)**: Solo anuncios inline 320x50, sidebars ocultos
 
 ### 🔧 Características Implementadas:
 

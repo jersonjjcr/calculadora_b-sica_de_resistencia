@@ -6,14 +6,16 @@ const AdBanner = ({
   adSlot, 
   adFormat = "auto", 
   fullWidthResponsive = true,
-  className = ""
+  className = "",
+  side = "" // "left" o "right" para sidebars
 }) => {
   const [dimensions, setDimensions] = useState(getAdConfig(position));
 
   useEffect(() => {
     // Actualizar dimensiones en resize
     const handleResize = () => {
-      setDimensions(getAdConfig(position));
+      const newDimensions = getAdConfig(position);
+      setDimensions(newDimensions);
     };
 
     window.addEventListener('resize', handleResize);
@@ -21,7 +23,7 @@ const AdBanner = ({
     // Cargar anuncios cuando el componente se monta
     const loadAds = () => {
       try {
-        if (typeof window !== 'undefined' && window.adsbygoogle) {
+        if (typeof window !== 'undefined' && window.adsbygoogle && dimensions) {
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         }
       } catch (err) {
@@ -36,7 +38,12 @@ const AdBanner = ({
       window.removeEventListener('resize', handleResize);
       clearTimeout(timer);
     };
-  }, [position]);
+  }, [position, dimensions]);
+
+  // No renderizar si no hay dimensiones para este dispositivo
+  if (!dimensions) {
+    return null;
+  }
 
   const adStyle = {
     width: `${dimensions.width}px`,
@@ -44,8 +51,10 @@ const AdBanner = ({
     maxWidth: '100%'
   };
 
+  const containerClass = `ad-container ${className} ${side ? `ad-sidebar ${side}` : ''}`;
+
   return (
-    <div className={`ad-container ${className}`}>
+    <div className={containerClass}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block', ...adStyle }}
