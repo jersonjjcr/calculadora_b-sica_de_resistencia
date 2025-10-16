@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import AdBanner from './components/AdBanner'
 
 function App(){
   const [theme, setTheme] = useState("light");
@@ -77,6 +78,14 @@ function App(){
       <h1>Calculadora de Resistencias</h1>
       <p>Selecciona los colores de las bandas para calcular el valor</p>
       
+      {/* Anuncio superior - Banner horizontal */}
+      <AdBanner 
+        position="top"
+        adSlot="1234567890" 
+        adFormat="rectangle"
+        className="ad-top"
+      />
+      
       <div className="resistor-container">
         <div className="resistor">
           <div 
@@ -136,10 +145,26 @@ function App(){
         </div>
       </div>
 
+      {/* Anuncio medio - Entre controles y resultado */}
+      <AdBanner 
+        position="middle"
+        adSlot="1234567891" 
+        adFormat="rectangle"
+        className="ad-middle"
+      />
+
       <div className="result">
         <h2>Valor: {calculateResistance()}</h2>
         <p>Tolerancia: {toleranceValues[tolerance].tolerance}</p>
       </div>
+
+      {/* Anuncio inferior - Banner horizontal */}
+      <AdBanner 
+        position="bottom"
+        adSlot="1234567892" 
+        adFormat="rectangle"
+        className="ad-bottom"
+      />
     </div>
   );
 }

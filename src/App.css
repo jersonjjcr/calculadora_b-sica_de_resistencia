@@ -427,3 +427,56 @@ body.dark .result h2 {
     font-size: 12px;
   }
 }
+
+/* Estilos para anuncios */
+.ad-container {
+  margin: 1.5rem 0;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tema claro para anuncios */
+body.light .ad-container {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+/* Tema oscuro para anuncios */
+body.dark .ad-container {
+  background-color: #2d3748;
+  border: 1px solid #4a5568;
+}
+
+.ad-top {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.ad-middle {
+  margin: 2rem 0;
+}
+
+.ad-bottom {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+/* Responsive ads */
+@media (max-width: 575px) {
+  .ad-container {
+    margin: 1rem 0;
+    padding: 0.3rem;
+    min-height: 60px;
+  }
+}
+
+/* AdSense específico */
+.adsbygoogle {
+  display: block;
+  margin: 0 auto;
+}
