@@ -138,7 +138,7 @@ body.dark p {
 }
 
 .resistor {
-  width: clamp(250px, 60vw, 350px);
+  width: clamp(280px, 60vw, 390px);
   height: clamp(50px, 12vw, 70px);
   background: linear-gradient(90deg, 
     #d4af37 0%, 
@@ -161,8 +161,8 @@ body.dark p {
   width: clamp(15px, 4vw, 25px);
   height: clamp(40px, 10vw, 60px);
   margin: 0 clamp(3px, 1vw, 8px);
-  border: 20px solid #333;
-  border-radius: 2px;
+  border: 2px solid #333;
+  border-radius: 5px;
 }
 
 .band1 { margin-left: clamp(40px, 12vw, 70px); }
