@@ -6,7 +6,8 @@
   "homepage": "https://jersonjjcr.github.io/calculadora_b-sica_de_resistencia",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/calculadora_b-sica_de_resistencia/",
+    "build:vercel": "vite build --base=/",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
