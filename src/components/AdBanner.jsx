@@ -51,7 +51,13 @@ const AdBanner = ({
     maxWidth: '100%'
   };
 
-  const containerClass = `ad-container ${className} ${side ? `ad-sidebar ${side}` : ''}`;
+  let containerClass = `ad-container ${className}`;
+  
+  if (side === 'left' || side === 'right') {
+    containerClass += ` ad-sidebar ${side}`;
+  } else if (side === 'bottom-right') {
+    containerClass += ' ad-sidebar-bottom';
+  }
 
   return (
     <div className={containerClass}>

@@ -18,6 +18,11 @@ export const AD_CONFIG = {
       tablet: { width: 120, height: 500 },
       mobile: null // No se muestran en móvil
     },
+    sidebarBottom: {
+      desktop: { width: 336, height: 280 },
+      tablet: { width: 300, height: 250 },
+      mobile: null // No se muestra en móvil
+    },
     bottom: {
       desktop: { width: 728, height: 90 },
       tablet: { width: 468, height: 60 },

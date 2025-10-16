@@ -31,22 +31,22 @@ const Layout = ({ children }) => {
         </div>
       )}
 
-      {/* Contenido principal */}
+      {/* Contenido principal con contenedor adicional debajo */}
       <div className="content-wrapper">
         {children}
+        
+        {/* Contenedor adicional debajo del contenido principal */}
+        {showSidebars && (
+          <div className="sidebar-bottom">
+            <AdBanner 
+              position="sidebarBottom"
+              adSlot="1234567891" 
+              adFormat="rectangle"
+              side="bottom-right"
+            />
+          </div>
+        )}
       </div>
-
-      {/* Sidebar derecho - solo en desktop/tablet */}
-      {showSidebars && (
-        <div className="sidebar right">
-          <AdBanner 
-            position="sidebar"
-            adSlot="1234567891" 
-            adFormat="auto"
-            side="right"
-          />
-        </div>
-      )}
     </div>
   );
 };
