@@ -9,6 +9,7 @@ Una calculadora interactiva de resistencias eléctricas construida con React y V
 - 🎨 **Interfaz Intuitiva** - Resistor visual con bandas de colores interactivas
 - ⚡ **Cálculo en Tiempo Real** - Valores se actualizan automáticamente
 - 🎯 **Precisión** - Incluye tolerancias y formateo automático (Ω, kΩ, MΩ)
+- 💰 **Monetización Integrada** - Google AdSense con anuncios responsive
 
 ## 🚀 Demo en Vivo
 
@@ -73,6 +74,16 @@ npm run deploy
 2. Configura Build Command: `npm run build:vercel`
 3. Output Directory: `dist`
 4. Ver [VERCEL_DEPLOY.md](./VERCEL_DEPLOY.md) para más detalles
+
+## 💰 Monetización
+
+Este proyecto incluye integración con Google AdSense para monetización. Ver [MONETIZATION.md](./MONETIZATION.md) para configuración completa.
+
+### Configuración rápida:
+1. Crea cuenta en Google AdSense
+2. Obtén tu Publisher ID y Slot IDs
+3. Actualiza `src/config/adConfig.js`
+4. Deploy y espera aprobación
 
 ## 🎯 Cómo Usar
 
