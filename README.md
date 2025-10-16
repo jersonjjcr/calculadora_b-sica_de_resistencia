@@ -12,7 +12,8 @@ Una calculadora interactiva de resistencias eléctricas construida con React y V
 
 ## 🚀 Demo en Vivo
 
-[Ver Demo](https://jersonjjcr.github.io/calculadora_b-sica_de_resistencia)
+- **GitHub Pages**: [Ver Demo](https://jersonjjcr.github.io/calculadora_b-sica_de_resistencia)
+- **Vercel**: [Ver Demo en Vercel](https://calculadora-b-sica-de-resistencia.vercel.app) *(configurar después del deploy)*
 
 ## 📸 Capturas de Pantalla
 
@@ -53,9 +54,25 @@ La aplicación estará disponible en `http://localhost:5173`
 ## 📋 Scripts Disponibles
 
 - `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
+- `npm run build` - Construye para GitHub Pages
+- `npm run build:vercel` - Construye para Vercel
 - `npm run preview` - Vista previa de la build de producción
+- `npm run deploy` - Despliega a GitHub Pages
 - `npm run lint` - Ejecuta ESLint para revisar el código
+
+## 🌐 Despliegue
+
+### GitHub Pages
+```bash
+npm run build
+npm run deploy
+```
+
+### Vercel
+1. Importa el repositorio en [Vercel](https://vercel.com)
+2. Configura Build Command: `npm run build:vercel`
+3. Output Directory: `dist`
+4. Ver [VERCEL_DEPLOY.md](./VERCEL_DEPLOY.md) para más detalles
 
 ## 🎯 Cómo Usar
 
